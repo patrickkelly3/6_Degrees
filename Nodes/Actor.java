@@ -1,22 +1,30 @@
 package Nodes;
 public class Actor {
     
-    private String id;
-    private String name;
-    private String genre;
+    private String id; //ID number of the actor for SQL Query referencing
+    private String name; //Name of the Actor for user manipulation and understanding
+    
 
+    /**
+     * 
+     * @return String: ID number of the actor
+     */
     public String getID() {
         return this.id;
     }
 
+    /**
+     * 
+     * @return String: Name of the actor
+     */
     public String getName() {
         return this.name;
     }
 
-    public String getGenre() {
-        return this.genre;
-    }
-
+    /**
+     * 
+     * @param id
+     */
     public void setID(String id) {
         this.id = id;
     }
@@ -25,8 +33,6 @@ public class Actor {
         this.name = name;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
+   
     
 }
