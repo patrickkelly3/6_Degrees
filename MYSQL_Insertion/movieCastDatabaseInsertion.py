@@ -22,8 +22,6 @@ cursor.execute("""
 CREATE TABLE IF NOT EXISTS CAST (
     actor_ID VARCHAR(20) NOT NULL,
     movie_ID VARCHAR(20) NOT NULL,
-    FOREIGN KEY (actor_ID) REFERENCES Actor(actor_ID),
-    FOREIGN KEY (movie_ID) REFERENCES Movie(movie_ID),
     PRIMARY KEY (actor_ID, movie_ID)
 )
 """)
