@@ -3,17 +3,36 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class Traversal {
-    final private String URL = "jdbc:mysql://localhost:3306/6_Degrees";
-    final private String username = "root";
-    final private String password = "Hunkerdown0809!";
-
+    
+    
+    public Connection connectToDatabase() {
+        try {
+            Connection databaseConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/6_Degrees", "root", "Hunkerdown0809!");
+            return databaseConnection;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    
     public ArrayList<String> traversing(String actorID1, String actorID2) {
-        Connection databaseConnection;
+        Connection databaseConnection = connectToDatabase();
         Statement statement;
         try {
             
-            databaseConnection = DriverManager.getConnection(URL, username, password);
+            //databaseConnection = DriverManager.getConnection(URL, username, password);
             statement = databaseConnection.createStatement();
+
+            ResultSet actor_1_set = getResultSet(actorID1, "ACTOR", statement);
+            ResultSet actor_2_set = getResultSet(actorID2, "ACTOR", statement);
+
+            ArrayList<String> path = new ArrayList<>();
+
+
+            
+
+        
         }
         catch(SQLException e) {
             e.printStackTrace();
@@ -35,6 +54,15 @@ public class Traversal {
         }
 
         return set;
+    }
+
+    private ArrayList<String> actorTraversalRecursion (ArrayList<String> path, String actorID, int count) {
+
+        
+    }
+
+    private ArrayList<String> movieTraversalRecursion(ArrayList<String> path, String movieId, int count) {
+
     }
 
 
